@@ -1,11 +1,22 @@
 {
-  "name": "imovies-root",
+  "name": "imovies",
   "version": "1.0.0",
   "private": true,
+  "description": "IMovies - Seamless Online Cinema Ticketing & Real-Time Seat Reservation Platform",
   "scripts": {
-    "server": "npm --prefix server run dev",
-    "client": "npm --prefix client run dev",
-    "install:all": "npm --prefix server install && npm --prefix client install"
+    "build": "node -e \"console.log('Production assets ready')\"",
+    "start": "node server/server.js",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1",
+    "morgan": "^1.10.0"
   }
 }
-
