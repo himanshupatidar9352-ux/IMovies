@@ -1,0 +1,303 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --primary-color: #e50914;
+  --primary-hover: #b80710;
+  --bg-dark: #0f1014;
+  --bg-card: #181920;
+  --bg-card-hover: #22242d;
+  --text-muted: #8b8f9e;
+  --silver-seat: #4a5568;
+  --gold-seat: #d97706;
+  --vip-seat: #8b5cf6;
+  --selected-seat: #10b981;
+  --booked-seat: #2d3748;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-dark);
+  color: #f3f4f6;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1014;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3f52;
+}
+
+/* Navbar */
+.imovies-navbar {
+  background-color: rgba(15, 16, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand-logo {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo span {
+  color: var(--primary-color);
+}
+
+/* Hero Carousel */
+.hero-banner {
+  position: relative;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 16, 20, 0.95) 100%);
+}
+
+/* Movie Card */
+.movie-card {
+  background-color: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.movie-card-img-wrapper {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.movie-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.movie-card:hover .movie-card-img {
+  transform: scale(1.05);
+}
+
+.movie-badge-rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #fbbf24;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.movie-badge-cert {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cinema Screen Curve */
+.screen-container {
+  perspective: 600px;
+  text-align: center;
+  margin: 25px 0 35px 0;
+}
+
+.screen-curve {
+  height: 12px;
+  background: linear-gradient(90deg, rgba(229, 9, 20, 0.2), #e50914, rgba(229, 9, 20, 0.2));
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 8px 24px rgba(229, 9, 20, 0.4);
+  width: 80%;
+  margin: 0 auto 10px auto;
+}
+
+.screen-text {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+/* Seat Buttons */
+.seat-btn {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border-radius: 6px 6px 3px 3px;
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seat-btn.available-silver {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+.seat-btn.available-silver:hover {
+  background-color: #4b5563;
+  transform: scale(1.15);
+}
+
+.seat-btn.available-gold {
+  background-color: #92400e;
+  color: #fef3c7;
+}
+.seat-btn.available-gold:hover {
+  background-color: #b45309;
+  transform: scale(1.15);
+}
+
+.seat-btn.available-vip {
+  background-color: #6b21a8;
+  color: #f3e8ff;
+}
+.seat-btn.available-vip:hover {
+  background-color: #7e22ce;
+  transform: scale(1.15);
+}
+
+.seat-btn.selected {
+  background-color: var(--selected-seat) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+  transform: scale(1.1);
+}
+
+.seat-btn.booked {
+  background-color: #1f242d !important;
+  color: #4b5563 !important;
+  cursor: not-allowed !important;
+  opacity: 0.4;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Digital Boarding Pass / Ticket */
+.digital-ticket {
+  background: linear-gradient(135deg, #1e2029 0%, #15161d 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.digital-ticket::before,
+.digital-ticket::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg-dark);
+  border-radius: 50%;
+  top: 68%;
+}
+
+.digital-ticket::before {
+  left: -15px;
+}
+
+.digital-ticket::after {
+  right: -15px;
+}
+
+.ticket-divider {
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  margin: 25px 0;
+}
+
+/* Custom Buttons */
+.btn-primary-red {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-red:hover {
+  background-color: var(--primary-hover);
+  color: white;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+/* Show Timing Pills */
+.showtime-pill {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.showtime-pill:hover,
+.showtime-pill.active {
+  border-color: var(--primary-color);
+  background: rgba(229, 9, 20, 0.15);
+  color: #fff;
+}
+
